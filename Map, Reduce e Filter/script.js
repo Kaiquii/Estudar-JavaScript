@@ -56,11 +56,20 @@ const novosProdutos = produtos.map((produto) => {
   };
 });
 
-console.log(novosProdutos);
+// console.log(novosProdutos);
 
 // Qual será o faturamento, se vendermos todo o estoque
 
-const totalVendas = produtos.reduce((acumulador, produto) => {})
+const totalVendas = produtos.reduce((acumulador, produto) => {
+  return acumulador + produto.preco * produto.quantidade;
+}, 0);
+
+console.log(
+  totalVendas.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  })
+);
 
 // const numeros = [1, 2, 3, 4, 5];
 
@@ -71,3 +80,11 @@ const totalVendas = produtos.reduce((acumulador, produto) => {})
 // });
 
 // console.log(soma);
+
+// FILTRAR SOMENTE OS PRODUTOS EM PROMOÇÃO
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 9, 10];
+
+const pares = numeros.filter((numero) => {
+  return numero % 2 === 0;
+});
